@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+<script>
+        // soal 1
+        let gelas = 5;
+        let totalBayar = 25000;
+        let diskon = 0.1;
+
+        if (gelas >= 5){
+            console.log(totalBayar - (totalBayar * diskon) + " karena dapat diskon 10%");
+        } else{
+            console.log(totalBayar + " tidak dapat diskon");
+        }
+
+        console.log("============================================");
+        // soal 2
+        let nilaiTeori = 80;
+        let nilaiPraktik = 90;
+        let nilaiTotal = (nilaiTeori * 0.6) + (nilaiPraktik * 0.4);
+
+        if (nilaiTotal >= 85) {
+            console.log(`Nilai Akhir: ${nilaiTotal}. Status: LULUS DENGAN PUJIAN`);
+        } else if (nilaiTotal >= 75) {
+            console.log(`Nilai Akhir: ${nilaiTotal}. Status: LULUS`);
+        } else if (nilaiTeori < 60) {
+            console.log(`Nilai Akhir: ${nilaiTotal}. Status: TIDAK LULUS (Nilai Teori Tidak Memenuhi Syarat)`);
+        } else if (nilaiPraktik < 60) {
+            console.log(`Nilai Akhir: ${nilaiTotal}. Status: TIDAK LULUS (Nilai Praktik Tidak Memenuhi Syarat)`);
+        } else {
+            console.log(`Nilai Akhir: ${nilaiTotal}. Status: TIDAK LULUS`);
+        }
+
+        console.log("============================================");
+        // soal 3
+        let kendaraan = "motor";
+        let durasi = 1.5;
+        let isMember = true;
+        let discount = isMember ? 0.15 : 0;
+        let kartuHilang = false;
+        let jamPertama;
+        let jamBerikutnya;
+        let tarifMax;
+        let total;
+
+        if (kendaraan == "motor") {
+            jamPertama = 2000;
+            jamBerikutnya = 1000;
+            tarifMax = 10000;
+        } else if (kendaraan == "mobil") {
+            jamPertama = 5000;
+            jamBerikutnya = 2000;
+            tarifMax = 25000;
+        }
+
+        if (kartuHilang) {
+            console.log("Denda hilang kartu: Rp 50000");
+            console.log("Diskon member tidak berlaku");
+            console.log("Total: Rp 50000");
+        } else {
+            let durasiBulat = Math.ceil(durasi);
+
+            if (durasiBulat === 1) {
+                total = jamPertama;
+            } else {
+                total = jamPertama + (durasiBulat - 1) * jamBerikutnya;
+            }
+
+            console.log("Tarif: Rp " + total);
+
+            if (total > tarifMax) {
+                total = tarifMax;
+                console.log("Tarif maksimal berlaku: Rp " + tarifMax);
+            }
+
+            if (isMember) {
+                let potongan = total * discount;
+                total = total - potongan;
+                console.log("Diskon member 15%: Rp " + potongan);
+            }
+
+            console.log("Total: Rp " + total);
+        }
+
+    </script>
+</body>
+</html>
